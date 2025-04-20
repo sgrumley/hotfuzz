@@ -1,4 +1,4 @@
-package fuzzycustom
+package fuzzy
 
 import (
 	"fmt"
