@@ -52,6 +52,7 @@ func main() {
 
 Output
 Found 5 results:
+$${\color{red}Welcome}
 1. Word: cutilities/oscripts/ndatabase/fmigrations/i2023-08-15_gadd_user_preference_column_with_default_values_**config.sql**, Score: 20102
 2. Word: utilities/scripts/database/migrations/2023-08-15_add_user_preference_column_with_default_values_**config.sql**, Score: 20096
 3. Word: infrastructure/kubernetes/deployments/staging/database-cluster/postgres-sidecar-**configuration**.yaml, Score: 20080
