@@ -45,6 +45,14 @@ type Results struct {
 	Ranked []Result
 }
 
+func (r *Results) ToStringSlice() []string {
+	str := make([]string, 0)
+	for _, result := range r.Ranked {
+		str = append(str, result.Word)
+	}
+	return str
+}
+
 func (r *Results) Sort() {
 	sort.Slice(r.Ranked, func(i, j int) bool {
 		return r.Ranked[i].Score > r.Ranked[j].Score
