@@ -49,15 +49,12 @@ func main() {
 }
 
 ```
-
-Output
 Found 5 results:
-$${\color{red}Welcome}
-1. Word: cutilities/oscripts/ndatabase/fmigrations/i2023-08-15_gadd_user_preference_column_with_default_values_**config.sql**, Score: 20102
-2. Word: utilities/scripts/database/migrations/2023-08-15_add_user_preference_column_with_default_values_**config.sql**, Score: 20096
-3. Word: infrastructure/kubernetes/deployments/staging/database-cluster/postgres-sidecar-**configuration**.yaml, Score: 20080
-4. Word: **config**_utilities/scripts/database/migrations/2023-08-15_add_user_preference_column_with_default_values.sql, Score: 20000
-5. Word: backend/microservices/payment-processor/internal/repository/transa**c**ti**on**History/**f**a**i**ledTransactionsRetryQueue.**g**o, Score: 756
+1. Word: cutilities/oscripts/ndatabase/fmigrations/i2023-08-15_gadd_user_preference_column_with_default_values_**`config.sql`**, Score: 20102
+2. Word: utilities/scripts/database/migrations/2023-08-15_add_user_preference_column_with_default_values_**`config.sql`**, Score: 20096
+3. Word: infrastructure/kubernetes/deployments/staging/database-cluster/postgres-sidecar-**`configuration`**.yaml, Score: 20080
+4. Word: **`config`**_utilities/scripts/database/migrations/2023-08-15_add_user_preference_column_with_default_values.sql, Score: 20000
+5. Word: backend/microservices/payment-processor/internal/repository/transa**`c`**ti**`on`**History/**`f`**a**`i`**ledTransactionsRetryQueue.**`g`**o, Score: 756
 
 
 ## How It Works
