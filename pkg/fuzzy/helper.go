@@ -17,10 +17,16 @@ type Result struct {
 
 // Print outputs the word with matched positions highlighted in red
 func (r *Result) Print() {
-	wordRunes := []rune(r.Word)
+	ansiWord := HighlightANSI(r.Word, r.Positions)
+
+	fmt.Printf("Word: %s, Score: %d\n", ansiWord, r.Score)
+}
+
+func HighlightANSI(word string, positions []int) string {
+	wordRunes := []rune(word)
 
 	posMap := make(map[int]bool)
-	for _, pos := range r.Positions {
+	for _, pos := range positions {
 		posMap[pos] = true
 	}
 
@@ -37,7 +43,7 @@ func (r *Result) Print() {
 		}
 	}
 
-	fmt.Printf("Word: %s, Score: %d\n", sb.String(), r.Score)
+	return sb.String()
 }
 
 // Results holds multiple ranked search results
@@ -49,6 +55,14 @@ func (r *Results) ToStringSlice() []string {
 	str := make([]string, 0)
 	for _, result := range r.Ranked {
 		str = append(str, result.Word)
+	}
+	return str
+}
+
+func (r *Results) ToStringSliceANSI() []string {
+	str := make([]string, 0)
+	for _, result := range r.Ranked {
+		str = append(str, HighlightANSI(result.Word, result.Positions))
 	}
 	return str
 }

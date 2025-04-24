@@ -2,9 +2,11 @@ package fuzzy
 
 import (
 	"math"
+	"strings"
 )
 
 // improve with algos from https://tilores.io/fuzzy-wuzzy-online-tool
+// consider if case sensitive search is required
 
 var (
 	proximityMultiplier = 1000
@@ -51,9 +53,9 @@ type Finder struct {
 // NewFinder creates a new Finder instance with initialized fields
 func NewFinder(pattern string, word string) *Finder {
 	return &Finder{
-		patternStr:    pattern,
+		patternStr:    strings.ToLower(pattern),
 		patternRune:   []rune(pattern),
-		wordStr:       word,
+		wordStr:       strings.ToLower(word),
 		wordRune:      []rune(word),
 		matches:       make(map[rune][]int),
 		bestScore:     -1,
@@ -63,29 +65,11 @@ func NewFinder(pattern string, word string) *Finder {
 
 // Match compares the pattern with the word and returns a score
 func (f *Finder) Match() int {
-	// Find all possible matches between pattern and word
-	f.findMatches()
 	f.calculateScore()
 	return f.bestScore
 }
 
-// findMatches identifies all occurrences of pattern characters in the word
-// TODO: is this helping at all?
-func (f *Finder) findMatches() {
-	for i, char := range f.wordRune {
-		for _, patternChar := range f.patternRune {
-			if char == patternChar {
-				f.matches[char] = append(f.matches[char], i)
-			}
-		}
-	}
-}
-
 func (f *Finder) calculateScore() int {
-	if len(f.matches) == 0 {
-		return -1
-	}
-
 	score := 1
 	longestSeq, startingPos := f.findLongestOrderedSequence()
 	if longestSeq == len(f.patternStr) {
